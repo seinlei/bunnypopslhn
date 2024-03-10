@@ -1,0 +1,51 @@
+body
+{
+    background-color: bisque;
+    margin: auto;
+    padding: 0%;
+}
+
+.container
+{
+    width:500px;
+    height: 500px;
+    background-color: rgb(235, 165, 165);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(138, 164, 194, 0.1);
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    animation: bling-bling 2s infinite alternate;
+}
+
+@keyframes bling-bling {
+    0% {
+      background-color: #946565; 
+    }
+    50% {
+      background-color: #9ac5eb; 
+    }
+    100% {
+      background-color: #c55dab; 
+    }
+  }
+
+  .welcome
+  {
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+  }
+
+  .player
+  {
+    text-align: center;
+    color: rgb(56, 13, 13);
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-top: 100px;
+  }
