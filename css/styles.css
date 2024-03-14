@@ -81,7 +81,7 @@ body
     transition: background-color 0.3s;
     margin: 0 auto;
     display: block;
-    width: 50px;
+    width: 70px;
     margin-top: 100px;
   }
 
@@ -89,3 +89,41 @@ body
   {
     background-color: rgb(8, 88, 44);
   }
+
+#welcomemessage
+{
+  display: none;
+  background-color: #c8d9eb;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #11176d;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: bling 1s infinite alternate;
+}
+
+@keyframes bling {
+  from {
+    background-color: #b7dcfa; 
+  }
+  to {
+    background-color: #e4e4b6; 
+  }
+}
+.weltext
+{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.sectext
+{
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}

@@ -5,13 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bunny Pop</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="scripts/script.js" defer></script>
 </head>
 <body>
     <div class="container">
 <h1 class="welcome">Welcome to Bunny Pop</h1>
 <h2 class="player">Please Fill Your Player Name</h2>
 <input type="text" placeholder="Eg. CutieBunny"><br>
-<a href="welmes.html" class="join" type="submit">Join</a>
+<button class="join" type="button">Join</button>
+    </div>
+
+    <div id="welcomemessage" class="message">
+      <span class="weltext"> Thanks for Joining Us, Player <span id="nicknamedisplay"></span></span><br>
+      <span class="sectext">You will be automatically directed to the Game Screen in 10 seconds</span>
+    
     </div>
     
 </body>
