@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function()
 {
     const joinButton = document.querySelector('.join');
-    const nicknameInput = document.querySelector('input[type="text"]');
+    const nicknameInput = document.querySelector('#playername');
     const welcomeMessage = document.querySelector('.message');
     const nicknameDisplay = document.querySelector('#nicknamedisplay');
     const nicknameForm = document.querySelector('.container');
@@ -13,7 +13,7 @@ joinButton.addEventListener('click', function()
 
     if (nickname !== '')
     {
-        nicknameDisplay.textContent= nickname;
+        nicknameDisplay.textContent= '"' + nickname + '"';
         welcomeMessage.style.display = 'block';
         nicknameForm.style.display = 'none'; 
 
