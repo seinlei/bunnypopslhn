@@ -219,12 +219,44 @@ body
 
 #gamebody
 {
-  background-color:#93b2cf; 
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 150vh;
+  background: linear-gradient(to right, #f5a3a3, #a3d8f5);
+  transition: background 1s ease;
+}
+
+#gamebody:hover
+{
+  background: linear-gradient(to right, #a3d8f5, #f5a3a3);
+}
+
+.start
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  padding: 40px 60px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Luminari, fantasy;
+  background-color: #ffb5c5;
+  color: black;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 10px #d1eba2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start:hover
+{
+  box-shadow: 0px 0px 30px 15px #cff0a9;
+  padding: 60px 80px;
 }
 
 .bunny
