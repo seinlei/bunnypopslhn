@@ -13,7 +13,7 @@ joinButton.addEventListener('click', function()
 
     if (nickname !== '')
     {
-        nicknameDisplay.textContent= '"' + nickname + '"';
+        nicknameDisplay.textContent= ' " ' + nickname + ' " ';
         welcomeMessage.style.display = 'block';
         nicknameForm.style.display = 'none'; 
 
@@ -28,3 +28,15 @@ joinButton.addEventListener('click', function()
     });
 
 });
+
+function playSound()
+{
+    var audio = document.getElementById("clicksound");
+    audio.play();
+
+    setTimeout (function()
+    {
+    window.location.href= "game2.html";
+    },1000);
+}
+
