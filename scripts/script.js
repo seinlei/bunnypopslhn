@@ -34,9 +34,17 @@ function playSound()
     var audio = document.getElementById("clicksound");
     audio.play();
 
+    var instructionsDiv = document.querySelector('.instructions');
+    instructionsDiv.style.display = 'block';
+    
+
     setTimeout (function()
     {
+    instructionsDiv.style.display = 'none';
     window.location.href= "game2.html";
-    },1000);
-}
+    },10000);
+
+};
+
+
 

@@ -296,6 +296,50 @@ body
   right: 0;
 }
 
+.game2body
+{
+  width: 60%;
+  margin: 0 auto;
+}
+
+#gameplay
+{ 
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: rgb(226, 130, 178);
+}
+.instructions
+{
+  display: none;
+  position: absolute;
+  width: 500px;
+  top: 18%;
+  left: 0;
+  padding: 20px;
+  color: rgb(34, 2, 18);
+  border: 5px dotted rgb(236, 25, 141);
+  border-radius: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: bold;
+  animation: instruction 0.5s infinite linear alternate; 
+}
+
+@keyframes instruction {
+  0% {
+    box-shadow: 0 0 20px rgba(206, 96, 96, 0.5), 0 0 40px rgba(221, 46, 221, 0.5);
+}
+100% {
+    box-shadow: 0 0 40px rgba(211, 186, 76, 0.5), 0 0 60px rgba(255, 191, 54, 0.5); 
+}
+}
+
+
+
+
 
 
 #footerpart
