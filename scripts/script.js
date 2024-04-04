@@ -46,5 +46,48 @@ function playSound()
 
 };
 
+document.addEventListener('DOMContentLoaded', function()
+{
+    const gridHoles = document.querySelectorAll('.hole');
+
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function displayBunnies() {
+        const shuffledHoles = shuffle(gridHoles);
+        const hole = shuffledHoles[0]; // Choose a random hole
+
+        const bunnyGrid = document.createElement('div');
+        bunnyGrid.classList.add('bunnygrid');
+        hole.appendChild(bunnyGrid); // Place the bunny in the chosen hole
+    }
+
+    function moveBunnies() {
+        const bunnies = document.querySelectorAll('.bunnygrid');
+        const shuffledHoles = shuffle(gridHoles);
+
+        bunnies.forEach(bunny => {
+            const randomHole = shuffledHoles[getRandomNumber(0, shuffledHoles.length - 1)];
+            randomHole.appendChild(bunny);
+        });
+    }
+
+
+    displayBunnies();
+    setInterval(moveBunnies, 1000);
+
+});
+
+
+
 
 

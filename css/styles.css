@@ -315,9 +315,9 @@ body
 {
   display: none;
   position: absolute;
-  width: 500px;
-  top: 18%;
-  left: 0;
+  width: 80%;
+  top: 50%;
+  left: 10%;
   padding: 20px;
   color: rgb(34, 2, 18);
   border: 5px dotted rgb(236, 25, 141);
@@ -337,10 +337,34 @@ body
 }
 }
 
+.grid-container
+{
+  display: grid;
+  grid-template-columns: repeat(3 , 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
 
+.hole
+{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border: 2px solid #e4cfda;
+  border-radius: 50%;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+}
 
-
-
+.bunnygrid
+{
+  width:50px;
+  height:50px;
+  background-color: pink;
+  border-radius: 50%;
+}
 
 #footerpart
 {
