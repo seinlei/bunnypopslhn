@@ -311,6 +311,7 @@ body
   min-height: 100vh;
   background: rgb(226, 130, 178);
 }
+
 .instructions
 {
   display: none;
@@ -360,10 +361,44 @@ body
 
 .bunnygrid
 {
-  width:50px;
-  height:50px;
+  width: 100px;
+  height: 100px;
   background-color: pink;
   border-radius: 50%;
+  position: absolute;
+  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/09/07/bunny-1299162_640.png');
+  background-size: cover;
+}
+
+.timerbox
+{
+  width: 150px;
+  height: 50px;
+  background-color: pink;
+  border: 3px solid black;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+}
+
+.score-display
+{
+  display: none;
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  color: rgb(34, 2, 18);
+  border: 5px dotted rgb(236, 25, 141);
+  border-radius: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: bold;
+  background-color: black;
 }
 
 #footerpart

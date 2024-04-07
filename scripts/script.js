@@ -50,11 +50,13 @@ document.addEventListener('DOMContentLoaded', function()
 {
     const gridHoles = document.querySelectorAll('.hole');
 
-    function getRandomNumber(min, max) {
+    function getRandomNumber(min, max) 
+    {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function shuffle(array) {
+    function shuffle(array) 
+    {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
@@ -62,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function()
         return array;
     }
 
-    function displayBunnies() {
+    function displayBunnies() 
+    {
         const shuffledHoles = shuffle(gridHoles);
         const hole = shuffledHoles[0]; // Choose a random hole
 
@@ -71,11 +74,13 @@ document.addEventListener('DOMContentLoaded', function()
         hole.appendChild(bunnyGrid); // Place the bunny in the chosen hole
     }
 
-    function moveBunnies() {
+    function moveBunnies() 
+    {
         const bunnies = document.querySelectorAll('.bunnygrid');
         const shuffledHoles = shuffle(gridHoles);
 
-        bunnies.forEach(bunny => {
+        bunnies.forEach(bunny => 
+            {
             const randomHole = shuffledHoles[getRandomNumber(0, shuffledHoles.length - 1)];
             randomHole.appendChild(bunny);
         });
@@ -85,6 +90,48 @@ document.addEventListener('DOMContentLoaded', function()
     displayBunnies();
     setInterval(moveBunnies, 1000);
 
+});
+
+document.addEventListener('DOMContentLoaded', function()
+{
+    const timerBox = document.querySelector('.timerbox');
+    const scoreDisplay = document.querySelector('.score-display');
+    const gameBody = document.querySelector('.game2body');
+
+    let timer = 30;
+    let timerInterval;
+
+    function countTimer()
+    {
+        timerBox.textContent = `⏲️: ${timer}`;
+    }
+
+    function startTimer()
+    {
+        timerInterval = setInterval(() => 
+        {
+            if (timer>0)
+            {
+                timer--;
+                countTimer();
+            }
+            else
+            {
+                clearInterval(timerInterval);
+                displayScore();
+            }
+        } ,1000)
+    }
+
+    function displayScore() {
+        gameElements.forEach(element => {
+            element.style.display = 'none';
+        });
+        scoreDisplay.style.display = 'block';
+    }
+
+    countTimer();
+   startTimer();
 });
 
 
