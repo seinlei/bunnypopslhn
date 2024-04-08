@@ -389,16 +389,20 @@ body
   display: none;
   position: absolute;
   width: 400px;
+  height: 100px;
   top: 50%;
   left: 50%;
   padding: 20px;
-  color: rgb(34, 2, 18);
-  border: 5px dotted rgb(236, 25, 141);
-  border-radius: 70px;
+  color: rgb(12, 11, 11);
+  transform: translate(-50%, -50%);
+  border: 5px solid rgb(27, 26, 27);
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-weight: bold;
-  background-color: black;
+  font-size: 20px;
+  background: linear-gradient(to right, #FFB6C1, #ADD8E6);
+  text-align: center;
 }
 
 #footerpart

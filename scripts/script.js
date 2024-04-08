@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function()
 {
     const timerBox = document.querySelector('.timerbox');
     const scoreDisplay = document.querySelector('.score-display');
-    const gameBody = document.querySelector('.game2body');
+    const gameHide = document.querySelector('#gamehide');
 
     let timer = 30;
     let timerInterval;
@@ -124,15 +124,15 @@ document.addEventListener('DOMContentLoaded', function()
     }
 
     function displayScore() {
-        gameElements.forEach(element => {
-            element.style.display = 'none';
-        });
+        gameHide.style.display = 'none';
         scoreDisplay.style.display = 'block';
     }
 
     countTimer();
    startTimer();
 });
+
+
 
 
 
