@@ -261,15 +261,16 @@ body
 
 .bunny
 {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: pink;
   border-radius: 50%;
   position: absolute;
   clip-path: 50%;
-  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/09/07/bunny-1299162_640.png');
+  background-image: url('../images/bunny1.jpeg');
   background-size: cover;
   border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
 }
 
 .top-left
@@ -343,7 +344,7 @@ body
   display: grid;
   grid-template-columns: repeat(3 , 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 50px;
+  gap: 70px;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
@@ -351,8 +352,8 @@ body
 
 .hole
 {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: black;
   border: 2px solid #e4cfda;
   border-radius: 50%;
@@ -361,12 +362,12 @@ body
 
 .bunnygrid
 {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: pink;
   border-radius: 50%;
   position: absolute;
-  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/09/07/bunny-1299162_640.png');
+  background-image: url('../images/bunny2.jpeg');
   background-size: cover;
 }
 
