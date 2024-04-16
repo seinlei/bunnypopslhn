@@ -390,7 +390,7 @@ body
   display: none;
   position: absolute;
   width: 400px;
-  height: 100px;
+  height: 120px;
   top: 50%;
   left: 50%;
   padding: 20px;
@@ -404,6 +404,34 @@ body
   font-size: 20px;
   background: linear-gradient(to right, #FFB6C1, #ADD8E6);
   text-align: center;
+  padding-top: 20px;
+}
+
+
+.buttonbox
+{
+  display: flex;
+  justify-content: center;
+}
+
+.restart-button, .home-button
+{
+  background: linear-gradient(to right, pink, rgb(107, 107, 236));
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.restart-button:hover, .home-button:hover 
+{
+  opacity: 0.8;
 }
 
 #footerpart

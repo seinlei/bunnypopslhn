@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let timerInterval;
     let score = 0;
 
+    const shuffledHoles = shuffle(Array.from(gridHoles));
+
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -79,20 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function moveBunnies() {
         const bunnies = document.querySelectorAll('.bunnygrid');
-        const shuffledHoles = shuffle(Array.from(gridHoles));
-
-        if (bunnies.length > gridHoles.length) 
-        {
-            for (let i = gridHoles.length; i < bunnies.length; i++) 
-            {
-                bunnies[i].remove();
-            }
-        }
-
-         gridHoles.forEach(hole => 
-            {
-            if (hole.children.length > 0) 
-            {
+       
+        gridHoles.forEach(hole => {
+            if (hole.children.length > 0) {
                 hole.removeChild(hole.children[0]);
             }
         });
@@ -101,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const randomHole = shuffledHoles[getRandomNumber(0, shuffledHoles.length - 1)];
             randomHole.appendChild(bunny);
         });
+
     }
 
     function trackScores() {
