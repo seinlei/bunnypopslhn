@@ -434,6 +434,48 @@ body
   opacity: 0.8;
 }
 
+.joke
+{
+  text-align: center;
+  top: 5%;
+  right: 5%;
+  position: fixed;
+}
+
+.joke button 
+{
+  width: 300px;
+  height: 70px;
+  font-size: 16px;
+  background: linear-gradient(to right, pink, rgb(236, 108, 179));
+  color: white;
+  font-weight: bold;
+  font-family: Bradley Hand, cursive;
+  border: none;
+  border-radius: 20px;
+  border: 4px solid #1d010e;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: joke-light 1s infinite alternate;
+}
+
+@keyframes joke-light 
+{
+  0% {
+    box-shadow: 0 0 10px rgba(178, 240, 34, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(18, 49, 221, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(228, 86, 216, 0.8);
+  }
+}
+
+.rabbit-fact button:hover {
+  background-color: #e47bbc; 
+}
+
 #footerpart
 {
   width: 100%;

@@ -133,3 +133,32 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(moveBunnies, 1000);
     startTimer();
 });
+
+function fetchRandomRabbitFact() {
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/animals?name=rabbit',
+        headers: { 'X-Api-Key': '2gM24640NaZeGHGIO/rdpA==LakHSltWExGVGV0C' },
+        contentType: 'application/json',
+        success: function(result) {
+        
+            const randomIndex = Math.floor(Math.random() * result.length);
+            const randomRabbit = result[randomIndex];
+
+            const lifespan = randomRabbit.characteristics.lifespan;
+            const topSpeed = randomRabbit.characteristics.top_speed;
+
+            const message = `Random Rabbit Species: ${randomRabbit.name}\n\n
+                             Lifespan: ${lifespan}\n\n
+                             Top Speed: ${topSpeed}`;
+            
+
+            alert(message);
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    });
+}
+
+document.getElementById('rabbit-button').addEventListener('click', fetchRandomRabbitFact);
