@@ -134,26 +134,32 @@ document.addEventListener('DOMContentLoaded', function() {
     startTimer();
 });
 
-function fetchRandomRabbitFact() {
+$(document).ready(function() {
+    $('#joke-button').click(function() {
+        fetchRandomJoke();
+    });
+
+    $('.joke-display').click(function() {
+        $(this).hide(); 
+    });
+});
+
+function fetchRandomJoke() {
+    console.log("Fetching random joke...");
+    var limit = 1; // Fetch only one joke
     $.ajax({
         method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/animals?name=rabbit',
-        headers: { 'X-Api-Key': '2gM24640NaZeGHGIO/rdpA==LakHSltWExGVGV0C' },
+        url: 'https://api.api-ninjas.com/v1/jokes?limit=' + limit,
+        headers: { 'X-Api-Key': '2gM24640NaZeGHGIO/rdpA==LakHSltWExGVGV0C'}, 
         contentType: 'application/json',
         success: function(result) {
-        
-            const randomIndex = Math.floor(Math.random() * result.length);
-            const randomRabbit = result[randomIndex];
-
-            const lifespan = randomRabbit.characteristics.lifespan;
-            const topSpeed = randomRabbit.characteristics.top_speed;
-
-            const message = `Random Rabbit Species: ${randomRabbit.name}\n\n
-                             Lifespan: ${lifespan}\n\n
-                             Top Speed: ${topSpeed}`;
-            
-
-            alert(message);
+            console.log("Joke fetched successfully:", result);
+            if (result.length > 0 && result[0].joke) {
+                var joke = result[0].joke;
+                displayJoke(joke);
+            } else {
+                console.error('Error: No joke found in the response');
+            }
         },
         error: function ajaxError(jqXHR) {
             console.error('Error: ', jqXHR.responseText);
@@ -161,4 +167,6 @@ function fetchRandomRabbitFact() {
     });
 }
 
-document.getElementById('rabbit-button').addEventListener('click', fetchRandomRabbitFact);
+function displayJoke(joke) {
+    $('.joke-display').html('<p>' + joke + '</p>').show(); 
+}
