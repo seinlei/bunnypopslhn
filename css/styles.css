@@ -137,6 +137,7 @@ body
   top: 0;
   left: 0;
   z-index: 100;
+  border: 5px solid black;
 }
 
 .gametitle
@@ -491,47 +492,6 @@ body
   margin: auto;
   margin-top: 20vh;
   text-align: center;
-}
-
-#aboutus
-{
-  width: 99%;
-  height: 800px;
-  display: flex;
-  background-color: rgb(233, 98, 181);
-  border: 5px solid black;
-}
-
-#left-side
-{
-  flex: 1.5;
-  background-color: black;
-}
-
-#right-side
-{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-#image-slider
-{
-  flex: 1;
-  overflow: hidden;
-}
-
-.slide 
-{
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-
-#video-tutorial
-{
-  flex: 1;
-  background-color: green;
 }
 
 #footerpart

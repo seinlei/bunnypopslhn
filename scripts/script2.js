@@ -48,19 +48,27 @@ function playSound()
 
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll('.slide');
+    const texts = document.querySelectorAll('.slide-overlay');
     let currentSlide = 0;
   
     function showSlide(n) {
-      slides.forEach(slide => slide.style.display = "none");
-      slides[n].style.display = "block";
-    }
+        slides.forEach((slide, index) => {
+          if (index === n) {
+            slide.style.display = "block"; 
+            texts[index].style.display = "block";
+          } else {
+            slide.style.display = "none"; 
+            texts[index].style.display = "none";
+          }
+        });
+      }
   
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
     }
   
-    setInterval(nextSlide, 2000);
+    setInterval(nextSlide, 3000);
   
     showSlide(currentSlide);
   });
