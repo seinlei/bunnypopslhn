@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let timer = 30;
     let timerInterval;
     let score = 0;
+    let moveBunniesInterval; 
 
     const shuffledHoles = shuffle(Array.from(gridHoles));
 
@@ -33,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function moveBunnies() {
         const bunnies = document.querySelectorAll('.bunnygrid');
+
+        bunnies.forEach(bunny => {
+            bunny.classList.remove('clicked');
+        });
        
         gridHoles.forEach(hole => {
             if (hole.children.length > 0) {
@@ -50,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function trackScores() {
         score++;
         updateScoreDisplay();
+
+        this.classList.add('clicked'); 
     }
 
     function countTimer() {
@@ -61,7 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (timer > 0) {
                 timer--;
                 countTimer();
-            } else {
+
+                if (timer <= 10 && !moveBunniesInterval) {
+                    clearInterval(moveBunniesInterval);
+                    moveBunniesInterval = setInterval(moveBunnies, 800);
+                }
+            } 
+            else {
                 clearInterval(timerInterval);
                 displayScore();
                 backgroundAudio.pause();
@@ -82,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     displayBunnies();
-    setInterval(moveBunnies, 1000);
+    moveBunniesInterval = setInterval(moveBunnies, 1500);
     startTimer();
 });
 
