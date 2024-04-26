@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bunny Pop Game</title>
   <link rel="stylesheet" href="css/styles.css"> 
+  <link rel="stylesheet" href="css/styles2.css"> 
   <script src="scripts/script.js" defer></script>
   <script src="scripts/script2.js" defer></script>
+  
+  <!-- using API  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -15,13 +18,14 @@
  <section id="gameheader" class="homesection">
     <h1 class="gametitle">Bunny Pop</h1>
 
+    <!-- random joke generator on click by function fetchRandomJoke -->
 <div class="joke">
   <button id="joke-button" onclick="fetchRandomJoke()">Feeling down? Get some random jokes!</button>
 </div>
 
 <div class="joke-display"></div>
 
-
+ <!-- navigation part for header -->
     <nav class="homenav">
       <a href="game.html">Home</a>
     </nav>
@@ -29,7 +33,10 @@
     <nav class="aboutnav">
       <a href="aboutus.html">About Us</a>
     </nav>
+
  </section>
+
+ <!-- adding bunny images at four corners to the home section for visual -->
 
  <section id="gamebody" class="homesection"> 
   <div class="bunny top-left"></div>
@@ -37,6 +44,8 @@
   <div class="bunny bottom-left"></div>
   <div class="bunny bottom-right"></div>
 
+   
+  <!-- call the function playSound to display audio when clicking Start Button  -->
     <button class="start" onclick="playSound()">Click Here to Start the Game</button>
   <audio id="clicksound">
     <source src="audio/clickaudio.mp3" type="audio/mpeg">
@@ -44,11 +53,21 @@
 
  </section>
 
+  <!-- footer section with github link to view the source code -->
  <section id="footerpart" class="homesection">
   <footer>
-    This is the Footer Part
+    <p>© 2024 BunnyPop. All rights reserved.</p>
   </footer>
+
+  <div class="github-link">
+    <a href="https://github.com/seinlei/bunnypopslhn">
+      <img src="images/git-bunny.jpg" alt="GitHub Icon"> View on GitHub
+    </a>
+  </div>
+
  </section>
+
+  <!-- separate class for instructions to appear for 10 seconds when click the start button -->
 
  <div class="instructions">
   <h2 style="text-align: center;">Instructions</h2>

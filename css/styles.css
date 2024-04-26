@@ -16,7 +16,7 @@ body
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    animation: bling-bling 2s infinite alternate;
+    animation: bling-bling 2s infinite alternate; /* bling bling effect for container */
 }
 
 @keyframes bling-bling {
@@ -27,7 +27,7 @@ body
       background-color: #f1c8ef; 
     }
     100% {
-      background-color: #e0ffcd; ; 
+      background-color: #e0ffcd; ; /* change three colors for container */
     }
   }
 
@@ -50,7 +50,7 @@ body
     margin-top: 80px;
   }
 
-  .container input[type="text"]
+  .container input[type="text"]  /* call text input */
   {
     width: 80%;
     padding: 10px;
@@ -64,13 +64,13 @@ body
 
   .container input[type="text"]:focus
   {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    outline: none; /* remove default focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add box shadow when input is focused */
   }
 
   .join
   {
-    display: inline-block;
+    display: inline-block; /* set display to inline block*/
     padding: 10px 20px;
     background-color: #e0ffcd;;
     color: black;
@@ -87,7 +87,7 @@ body
 
   .join:hover
   {
-    background-color: rgb(8, 88, 44);
+    background-color: rgb(8, 88, 44); /* change bg color when the cursor is on join button */
   }
 
 #welcomemessage
@@ -98,17 +98,18 @@ body
   padding: 20px;
   border: 2px solid #11176d;
   border-radius: 20px;
-  position: fixed;
+  position: fixed; /* positions won't change */
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%); /* apply transform to place at the center */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: bling 1s infinite alternate;
+  animation: bling 1s infinite alternate; /* add bling bling effect to the welcome message */
 }
 
-@keyframes bling {
+@keyframes bling 
+{
   from {
-    background-color: #b7dcfa; 
+    background-color: #b7dcfa; /* change the color */
   }
   to {
     background-color: #e4e4b6; 
@@ -136,7 +137,7 @@ body
   position: relative;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 100; /* place header at the top */
   border: 5px solid black;
 }
 
@@ -152,12 +153,13 @@ body
                3px 3px 0 #4e4b4b, 
                4px 4px 0 #17161f, 
                5px 5px 0 #120f1f; ;
-  animation: twinkling 2s infinite;
+  animation: twinkling 2s infinite; /* add animation for BunnyPop title to */
   margin-top: 5px;
 }
 
-@keyframes twinkling {
-  0% { opacity: 0.8; }
+@keyframes twinkling 
+{
+  0% { opacity: 0.8; } /* opacity changes according to seconds */
   50% { opacity: 1; }
   100% { opacity: 0.8; }
 }
@@ -226,12 +228,12 @@ body
   flex-direction: column;
   min-height: 150vh;
   background: linear-gradient(to right, #f5a3a3, #a3d8f5);
-  transition: background 1s ease;
+  transition: background 1s ease; /* set a transition effect to the background */
 }
 
 #gamebody:hover
 {
-  background: linear-gradient(to right, #a3d8f5, #f5a3a3);
+  background: linear-gradient(to right, #a3d8f5, #f5a3a3); /* color changes when the body is touched */
 }
 
 .start
@@ -251,7 +253,7 @@ body
   cursor: pointer;
   box-shadow: 0px 0px 20px 10px #d1eba2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
+  transition: padding 0.3s ease, box-shadow 0.3s ease; /* transition effects for padding and box shadow */
 }
 
 .start:hover
@@ -269,9 +271,9 @@ body
   position: absolute;
   clip-path: 50%;
   background-image: url('../images/bunny1.jpeg');
-  background-size: cover;
+  background-size: cover; /* to fit the image in the container */
   border-radius: 50%;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7); /* added box shadow */
 }
 
 .top-left
@@ -328,10 +330,11 @@ body
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-weight: bold;
-  animation: instruction 0.5s infinite linear alternate; 
+  animation: instruction 0.5s infinite linear alternate; /* add animation effects for instructions*/
 }
 
-@keyframes instruction {
+@keyframes instruction 
+{
   0% {
     box-shadow: 0 0 20px rgba(206, 96, 96, 0.5), 0 0 40px rgba(221, 46, 221, 0.5);
 }
@@ -343,10 +346,10 @@ body
 .grid-container
 {
   display: grid;
-  grid-template-columns: repeat(3 , 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3 , 100px); /* grid columns repeat 3*/
+  grid-template-rows: repeat(3, 100px); /* grid rows repeat by 3 */
   gap: 70px;
-  justify-content: center;
+  justify-content: center; /* place grids at the center */
   align-items: center;
   margin-top: 100px;
 }
@@ -358,7 +361,7 @@ body
   background-color: black;
   border: 2px solid #e4cfda;
   border-radius: 50%;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3); /* add box shadow for holes */
 }
 
 .bunnygrid
@@ -366,10 +369,10 @@ body
   width: 150px;
   height: 150px;
   background-color: pink;
-  border-radius: 50%;
+  border-radius: 50%; /* to get circles */
   position: absolute;
   background-image: url('../images/bunny2.jpeg');
-  background-size: cover;
+  background-size: cover; /* to fit the images */
 }
 
 .timerbox
@@ -396,14 +399,14 @@ body
   left: 50%;
   padding: 20px;
   color: rgb(12, 11, 11);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* to place at the center */
   border: 5px solid rgb(27, 26, 27);
   border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-weight: bold;
   font-size: 20px;
-  background: linear-gradient(to right, #FFB6C1, #ADD8E6);
+  background: linear-gradient(to right, #FFB6C1, #ADD8E6); /* add gradient backgrounds for score display*/
   text-align: center;
   padding-top: 20px;
 }
@@ -412,46 +415,46 @@ body
 .buttonbox
 {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* plece the contents at the center*/
 }
 
 .restart-button, .home-button
 {
-  background: linear-gradient(to right, pink, rgb(107, 107, 236));
+  background: linear-gradient(to right, pink, rgb(107, 107, 236)); /* gradient background */
   color: black;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: none; /* none tex decorations to avoid underlined links */
   border: 1px solid black;
   padding: 10px 20px;
   margin-right: 10px;
   font-size: 13px;
-  cursor: pointer;
+  cursor: pointer; /* change the cursor to pointer when hovering the button */
   border-radius: 25px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .restart-button:hover, .home-button:hover 
 {
-  opacity: 0.8;
+  opacity: 0.8; /* opacity to show when hover the buttons */
 }
 
 .bunnygrid.clicked {
-  animation: bounce 0.5s ease;
+
+  animation: bounce 0.5s ease; /* add bounching effects when bunny images are clicked*/
 }
 
-@keyframes bounce {
+@keyframes bounce /* define the keyframes for bounce animation*/
+{
   0% { transform: scale(1); }
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
-
-
 .joke
 {
   text-align: center;
   top: 5%;
   right: 5%;
-  position: fixed;
+  position: fixed; /* fixed position for joke */
 }
 
 #joke-button 
@@ -463,15 +466,14 @@ body
   color: black;
   font-weight: bold;
   font-family: Bradley Hand, cursive;
-  border: none;
   border-radius: 20px;
   border: 4px solid #1d010e;
-  cursor: pointer;
+  cursor: pointer; /*changes cursor to pointer when hover */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: joke-light 1s infinite alternate;
+  animation: joke-light 1s infinite alternate; /* add animation effects for joke button*/
 }
 
-@keyframes joke-light 
+@keyframes joke-light  /* keyframs colors according to opacity*/
 {
   0% {
     box-shadow: 0 0 20px rgba(188, 248, 48, 0.5);
@@ -484,8 +486,9 @@ body
   }
 }
 
-.joke-button:hover {
-  background-color: #e47bbc; 
+.joke-button:hover 
+{
+  background-color: #e47bbc; /* change background when hover*/
 }
 
 .joke-display 
@@ -502,12 +505,17 @@ body
   padding: 20px;
   margin: auto;
   margin-top: 20vh;
-  text-align: center;
+  text-align: center; /* align texts in centers for the jokes*/
 }
 
 #footerpart
 {
   width: 100%;
   height: 100px;
-  background-color: #dfa6a6; 
+  margin: 0; /* no margins to avoid gaps between body */
+  padding: 20px 0; /* added padding */
+  background-color: #dfa6a6;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
 }

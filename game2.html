@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bunny Pop Game</title>
   <link rel="stylesheet" href="css/styles.css"> 
+  <link rel="stylesheet" href="css/styles2.css"> 
   <script src="scripts/script.js" defer></script>
 </head>
 <body class="game2body">
 
+  <!-- display only header "BunnyPop" when playing the game, hiding navigation -->
 <section id = "gamehide">
 
  <section id="gameheader" style="height: 100px;">
@@ -18,10 +20,12 @@
 
 <section id="gameplay">
 
+  <!-- timer box display for 30 seconds -->
   <div class="timerbox">
   ⏲️ : 
   </div>
 
+  <!-- container for nine holes  -->
   <div class="grid-container">
 
     <div class="hole"></div>
@@ -38,20 +42,32 @@
 
 </section>
 
- <section id="footerpart">
+<section id="footerpart" class="homesection">
   <footer>
-    This is the Footer Part
+    <p>© 2024 BunnyPop. All rights reserved.</p>
   </footer>
+
+  <div class="github-link">
+    <a href="https://github.com/seinlei/bunnypopslhn">
+      <img src="images/git-bunny.jpg" alt="GitHub Icon"> View on GitHub
+    </a>
+  </div>
+
  </section>
  </section>
 
+  <!-- score displaying after 30 secs -->
+
  <div class="score-display">Thanks for playing our BunnyPop! <br>
 Your total score: <span id="score">0</span> <br><br>
+
+ <!-- restart-button and home button displaying -->
  <div class="button-box">
         <a href="game2.html" class="restart-button">Restart</a>
         <a href="game.html" class="home-button">Home</a>
     </div></div>
  
+    <!-- to display audio in loop when playing the game  -->
  <audio id="bgplay" loop>
   <source src="audio/bgaudio.mp3" type="audio/mpeg">
 </audio>
