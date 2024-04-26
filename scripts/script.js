@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let timer = 30;
     let timerInterval;
     let score = 0;
-    let moveBunniesInterval; 
+    let moveBunniesInterval = null;
+     let intervalUpdated = false;
 
     const shuffledHoles = shuffle(Array.from(gridHoles));
 
@@ -69,11 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 timer--;
                 countTimer();
 
-                if (timer <= 10 && !moveBunniesInterval) {
+                 console.log("Timer:", timer, "Interval:", moveBunniesInterval);
+
+                 if (timer <= 10 && !intervalUpdated) {
                     clearInterval(moveBunniesInterval);
                     moveBunniesInterval = setInterval(moveBunnies, 800);
+                    intervalUpdated = true; 
+                    console.log("Interval updated");
                 }
-            } 
+            }
             else {
                 clearInterval(timerInterval);
                 displayScore();
