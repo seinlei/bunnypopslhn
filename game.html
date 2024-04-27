@@ -34,6 +34,8 @@
       <a href="aboutus.html">About Us</a>
     </nav>
 
+    <div id="playerHome">Welcome, Player: <span id="playerdisplay"></span></div>
+
  </section>
 
  <!-- adding bunny images at four corners to the home section for visual -->
@@ -79,6 +81,25 @@
   <p style="font-style: italic; color: rgb(61, 99, 223); text-align: center;">
     ( You will be automatically directed to the game screen in 10 seconds. ) </p>
 </div>
+
+<script>
+  // Retrieve the nickname from local storage
+  const nickname = localStorage.getItem('nickname');
+
+  // Display the nickname beside player :
+
+  // get element by ID 
+  const playerDisplay = document.getElementById('playerdisplay');
+
+  if (nickname) 
+  {
+      playerDisplay.textContent = '"' + nickname + '"'; // display the player name
+  } 
+  else 
+  {
+      playerDisplay.textContent = 'Guest'; // Default message if nickname is not available
+  }
+</script>
 
 </body>
 </html>

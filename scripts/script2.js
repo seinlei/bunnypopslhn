@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function()
     const nicknameDisplay = document.querySelector('#nicknamedisplay');
     const nicknameForm = document.querySelector('.container');
 
-
-// even listen when join button is clicked 
+// event listen when join button is clicked 
 
 joinButton.addEventListener('click', function()
 {
@@ -21,12 +20,19 @@ joinButton.addEventListener('click', function()
         welcomeMessage.style.display = 'block'; // display welcome message 
         nicknameForm.style.display = 'none'; // hide the nickname form 
 
+         // Store the nickname in local storage
+        localStorage.setItem('nickname', nickname);
+
         setTimeout(function()
         {
             window.location.href= 'game.html'; // go to game.html after 10 secs 
         },
         10000);
 
+        }
+        else {
+            // Add error handling for empty nickname input
+            alert('Please enter a nickname!');
         }
 
     });
