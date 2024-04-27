@@ -1,96 +1,155 @@
-document.addEventListener('DOMContentLoaded', function()
+//  stat javascript for timer, bunny display and score tracking
+
+document.addEventListener('DOMContentLoaded', function() 
 {
-    // select elements from DOM 
-    const joinButton = document.querySelector('.join');
-    const nicknameInput = document.querySelector('#playername');
-    const welcomeMessage = document.querySelector('.message');
-    const nicknameDisplay = document.querySelector('#nicknamedisplay');
-    const nicknameForm = document.querySelector('.container');
-
-// event listen when join button is clicked 
-
-joinButton.addEventListener('click', function()
-{
-    const nickname = nicknameInput.value.trim(); // get the trim value of the nickname input to avoid blanks 
-
-    // check if the nickname is empty
-    if (nickname !== '')
-    {
-        nicknameDisplay.textContent= ' " ' + nickname + ' " '; // display the nickname in nickname display box 
-        welcomeMessage.style.display = 'block'; // display welcome message 
-        nicknameForm.style.display = 'none'; // hide the nickname form 
-
-         // Store the nickname in local storage
-        localStorage.setItem('nickname', nickname);
-
-        setTimeout(function()
-        {
-            window.location.href= 'game.html'; // go to game.html after 10 secs 
-        },
-        10000);
-
-        }
-        else {
-            // Add error handling for empty nickname input
-            alert('Please enter a nickname!');
-        }
-
-    });
-
-});
-
-// function to play the sound and show instructions when clicked the start button 
-
-function playSound()
-{
-    var audio = document.getElementById("clicksound"); // get the audio element by ID
-    audio.play(); // paly the audio 
-
-    var instructionsDiv = document.querySelector('.instructions'); // select the instructions 
-    instructionsDiv.style.display = 'block'; // display instructions 
+    // call each parts by queryselector 
+    const gridHoles = document.querySelectorAll('.hole');
+    const timerBox = document.querySelector('.timerbox');
+    const scoreDisplay = document.querySelector('.score-display');
+    const gameHide = document.querySelector('#gamehide');
+    const backgroundAudio = document.getElementById('bgplay');
     
+    // Define variables for the game timer, score, and intervals for moving bunnies
+    if (gridHoles && gridHoles.length > 0) {
+    let timer = 30; // start value for timer 
+    let timerInterval; // variable to store the timerInterval
+    let score = 0; // start value for score 
+    let moveBunniesInterval = null; // variable to store in interval for function move bunnies 
+     let intervalUpdated = false; // to track if the interval is being updated for the last 10 seconds
 
-    // time out function to hide the instructions and go the game2.html after 10 seconds 
+    const shuffledHoles = shuffle(Array.from(gridHoles));
 
-                setTimeout (function()
-                {
+    // Function to generate a random number for bunnies holes
 
-                instructionsDiv.style.display = 'none';
-                window.location.href= "game2.html";
+    function getRandomNumber(min, max) 
+    {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-                },10000);
+    // Function to shuffle the elements of an array
+    function shuffle(array) 
+    {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array; // return shuffle array
+    }
 
-};
+    // Function to display bunnies in random holes and add event listeners for score tracking
+    function displayBunnies() 
+    {
+        const shuffledHoles = shuffle(gridHoles);
+        const hole = shuffledHoles[0];
+        const bunnyGrid = document.createElement('div'); // create div element
+        bunnyGrid.classList.add('bunnygrid');// named class of div element to bunnygrid
+        hole.appendChild(bunnyGrid); // append the bunny grid to the seletced hole 
+        bunnyGrid.addEventListener('click', trackScores); // event listener for scores to track when the bunny is clickked
+    }
 
-document.addEventListener("DOMContentLoaded", function() 
-{
-    // select all elements class named slide
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
+    // Function to move bunnies
+    function moveBunnies() 
+    {
+        const bunnies = document.querySelectorAll('.bunnygrid'); // select an div class element called bunnygrid
 
-  // function to show the slide 
+         // Remove the 'clicked' bunnies from all holes 
 
-  function showSlide(n) 
-  {
-      slides.forEach((slide, index) => 
-      {
-          // If the index matches the current slide, display it, else hide it 
-          if (index === n) 
-          {
-              slide.style.display = "block";
-          } else {
-              slide.style.display = "none";
-          }
-      });
-  }
+        bunnies.forEach(bunny => 
+            {
+            bunny.classList.remove('clicked');
+        });
 
-  // function to display another slide 
-  function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length; // increment current slide value
-      showSlide(currentSlide); // show the nextslide 
-  }
+        // Remove any bunnies from grid holes
+        gridHoles.forEach(hole => 
+            {
+            if (hole.children.length > 0) {
+                hole.removeChild(hole.children[0]);
+            }
+        });
 
-  setInterval(nextSlide, 3000); // show the next slide after every 3 seconds 
+        // moving bunnies to random holes 
+        bunnies.forEach(bunny => 
+            {
+             // Select a random hole from the shuffled holes array
+            const randomHole = shuffledHoles[getRandomNumber(0, shuffledHoles.length - 1)];
+            randomHole.appendChild(bunny); // append the bunny to the randeom hole 
+        });
 
-  showSlide(currentSlide); // first,show the first slide 
+    }
+
+    // function to track scores when a bunny is clicked
+    function trackScores() 
+    {
+        score++;
+        updateScoreDisplay(); // update score display
+        this.classList.add('clicked'); // add the clicked class to the clciked bunny grid 
+    }
+
+    // function to count timer 
+    function countTimer() 
+    {
+        timerBox.textContent = `⏲️: ${timer}`;
+    }
+
+    // function to start timer 
+    function startTimer() 
+    {
+        // Set an interval to decrement the timer every second to 0
+        timerInterval = setInterval(() => 
+        {
+            if (timer > 0) 
+            {
+                timer--;
+                countTimer(); // count timer 
+
+                // Log timer and moveBunniesInterval for debugging in console
+                 console.log("Timer:", timer, "Interval:", moveBunniesInterval);
+
+                  // Update the interval to 1000 for moving bunnies when timer is 10 or less
+                 if (timer <= 10 && !intervalUpdated) 
+                 {
+                    clearInterval(moveBunniesInterval); // clear the current interval
+                    moveBunniesInterval = setInterval(moveBunnies, 1000); // update interval 
+                    intervalUpdated = true; 
+                    console.log("Interval updated"); // log interval update to check if the interval is really update or not
+                }
+            }
+            else {
+                // Clear the timer interval when timer reaches 0
+                clearInterval(timerInterval);
+
+                // display the score
+                displayScore();
+
+                // background audio stop when the timer ends 
+                backgroundAudio.pause();
+            }
+        }, 1000); // run the intervaal for every 1 secs
+        backgroundAudio.play(); // play the backgroundaudio when playing the game
+    }
+
+    // function to update the scores
+    function updateScoreDisplay() {
+        const scoreElement = document.getElementById('score'); // select the score element by ID 
+        scoreElement.textContent = score; // update text content
+    }
+
+    // function to display the final score
+    function displayScore() 
+    {
+        // hide the game elements to display the scores only
+        gameHide.style.display = 'none';
+        scoreDisplay.style.display = 'block';
+        updateScoreDisplay(); // update score display
+    }
+
+    // calling the functions to start the game 
+    displayBunnies(); // display bunnies in random grid holes 
+    moveBunniesInterval = setInterval(moveBunnies, 1500); // start the bunny speed at 1500 set interval
+    startTimer(); // start the timer from 30 
+}
+else {
+    console.error("No elements with class 'hole' found.");
+}
 });
+

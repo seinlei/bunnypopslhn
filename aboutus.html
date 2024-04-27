@@ -6,7 +6,6 @@
   <title>Bunny Pop Game</title>
   <link rel="stylesheet" href="css/styles.css"> 
   <link rel="stylesheet" href="css/styles2.css"> 
-  <script src="scripts/script2.js" defer></script>
 </head>
 <body>
  <section id="gameheader" class="homesection">
@@ -111,6 +110,38 @@
 
       </div>
     </div>
+
+    <script>
+          // select all elements class named slide
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+      
+        // function to show the slide 
+      
+        function showSlide(n) 
+        {
+            slides.forEach((slide, index) => 
+            {
+                // If the index matches the current slide, display it, else hide it 
+                if (index === n) 
+                {
+                    slide.style.display = "block";
+                } else {
+                    slide.style.display = "none";
+                }
+            });
+        }
+      
+        // function to display another slide 
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length; // increment current slide value
+            showSlide(currentSlide); // show the nextslide 
+        }
+      
+        setInterval(nextSlide, 3000); // show the next slide after every 3 seconds 
+      
+        showSlide(currentSlide); // first,show the first slide 
+      </script>
   
   </section>
   
