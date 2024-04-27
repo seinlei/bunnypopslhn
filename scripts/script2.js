@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function()
     const backgroundAudio = document.getElementById('bgplay');
     
     // Define variables for the game timer, score, and intervals for moving bunnies
-    if (gridHoles && gridHoles.length > 0) {
     let timer = 30; // start value for timer 
     let timerInterval; // variable to store the timerInterval
     let score = 0; // start value for score 
@@ -147,9 +146,5 @@ document.addEventListener('DOMContentLoaded', function()
     displayBunnies(); // display bunnies in random grid holes 
     moveBunniesInterval = setInterval(moveBunnies, 1500); // start the bunny speed at 1500 set interval
     startTimer(); // start the timer from 30 
-}
-else {
-    console.error("No elements with class 'hole' found.");
-}
 });
 
